@@ -14,7 +14,6 @@ import VueCookie from './utils/vue-cookie'{{#if_eq lintConfig "airbnb"}};{{/if_e
 import VueComponents from './utils/vue-components'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueApi from './utils/vue-apis'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-
 Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 function checkStatus{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(response) {
