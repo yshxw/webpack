@@ -53,7 +53,7 @@ npm run publish
 npm run online
 ```
 
-## Customize Log
+## New Feature
 
 - [x] Add mock server
 - [x] Add Vue cookie plugin
