@@ -15,11 +15,20 @@ This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init yugasun/webpack my-project
 $ cd my-project
 $ npm install
 $ npm run dev
 ```
+
+## New Feature
+
+- [x] Add mock server
+- [x] Add Vue cookie plugin
+- [x] Add [vue-axios-plugin](https://www.npmjs.com/package/vue-axios-plugin)
+- [x] Add customize element-ui
+- [x] Add [ionicons](http://ionicons.com/)
+- [x] Use sass by default
 
 The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
 

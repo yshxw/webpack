@@ -17,6 +17,11 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <h2>User Info</h2>
+    <ul>
+      <li><a href="https://github.com/yugasun" target="_blank">\{{user_info.username}}</a></li>
+      <li><a href="mailto:yuga.sun.bj@gmail.com" target="_blank">\{{user_info.email}}</a></li>
+    </ul>
   </div>
 </template>
 
@@ -25,8 +30,25 @@ export default {
   name: 'HelloWorld',
   data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
     return {
-      msg: 'Welcome to Your Vue.js App'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      msg: 'Welcome to Your Vue.js App',
+      user_info: {}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+  },
+  methods: {
+    async getUserInfo{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
+      try {
+        const res = await this.$http.get(this.$api.user_info){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        this.user_info = res.data{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      } catch (e) {
+        this.user_info = {
+          username: 'yugasun',
+          email: 'yuga.sun.bj@gmail.com'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      }
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  },
+  created{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
+    this.getUserInfo(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
