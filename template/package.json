@@ -22,7 +22,8 @@
     "vue-router": "^3.0.1",{{/router}}
     "vue-axios-plugin": "^1.0.4",
     "element-ui": "^2.0.2",
-    "normalize.css": "^7.0.0"
+    "normalize.css": "^7.0.0"{{#if_eq platform "mobile"}},
+    "px2rem.scss": "^0.2.0"{{/if_eq}}
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
