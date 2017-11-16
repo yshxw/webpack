@@ -8,9 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js",
-    "devtest": "API=devtest node build/dev-server.js",
-    "publish": "npm run build && ./bin/upload",
-    "online": "npm run build && ./bin/online",
+    "devtest": "API=devtest npm start",
     "server": "node server/app.js"{{#if_eq runner "jest"}},
     "unit": "jest test/unit/specs --coverage",
     {{/if_eq}}
