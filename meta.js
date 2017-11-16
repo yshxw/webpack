@@ -90,7 +90,29 @@ module.exports = {
     },
     'unit': {
       'type': 'confirm',
-      'message': 'Setup unit tests with Karma + Mocha?'
+      'message': 'Setup unit tests'
+    },
+    'runner': {
+      'when': 'unit',
+      'type': 'list',
+      'message': 'Pick a test runner',
+      'choices': [
+        {
+          'name': 'Jest',
+          'value': 'jest',
+          'short': 'jest'
+        },
+        {
+          'name': 'Karma and Mocha',
+          'value': 'karma',
+          'short': 'karma'
+        },
+        {
+          'name': 'none (configure it yourself)',
+          'value': 'noTest',
+          'short': 'noTest'
+        }
+      ]
     },
     'e2e': {
       'type': 'confirm',
@@ -102,9 +124,13 @@ module.exports = {
     '.eslintignore': 'lint',
     'config/test.env.js': 'unit || e2e',
     'test/unit/**/*': 'unit',
-    'build/webpack.test.conf.js': 'unit',
+    'test/unit/index.js': "unit && runner === 'karma'",
+    'test/unit/karma.conf.js': "unit && runner === 'karma'",
+    'test/unit/specs/index.js': "unit && runner === 'karma'",
+    'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
-    'src/router/**/*': 'router'
+    'src/router/**/*': 'router',
+    'src/styles/_ionicons.scss': 'ionicons'
   },
   'completeMessage': 'To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://vuejs-templates.github.io/webpack'
 }

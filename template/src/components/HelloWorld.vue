@@ -48,7 +48,9 @@ export default {
     }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
   created{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
-    this.getUserInfo(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    try {
+      this.getUserInfo(){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    } catch (e) {}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
@@ -58,17 +60,14 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
-
 ul {
   list-style-type: none;
   padding: 0;
 }
-
 li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #42b983;
 }

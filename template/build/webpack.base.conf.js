@@ -9,6 +9,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
   },
@@ -31,15 +32,16 @@ module.exports = {
   module: {
     rules: [
       {{#lint}}
-      {
+      ...(config.dev.useEslint? [{
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
         options: {
-          formatter: require('eslint-friendly-formatter')
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: !config.dev.showEslintErrorsInOverlay
         }
-      },
+      }] : []),
       {{/lint}}
       {
         test: /\.vue$/,
@@ -49,7 +51,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/vue-axios-plugin')]
+        include: [resolve('src'), resolve('test')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
