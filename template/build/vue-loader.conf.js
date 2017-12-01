@@ -1,18 +1,20 @@
-'use strict'
-const utils = require('./utils')
-const config = require('../config')
-const isProduction = process.env.NODE_ENV === 'production'
-const sourceMapEnabled = isProduction
-  ? config.build.productionSourceMap
-  : config.dev.cssSourceMap
-
+var utils = require('./utils')
+var config = require('../config')
+var isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  loaders: utils.cssLoaders({
-    sourceMap: sourceMapEnabled,
+  loaders: Object.assign(utils.cssLoaders({
+    sourceMap: isProduction
+    ? config.build.productionSourceMap
+    : config.dev.cssSourceMap,
     extract: isProduction
+  }), {
+    {{#lint}}
+    ts: {
+      loader: 'ts-loader!tslint-loader'
+    }
+    {{/lint}}
   }),
-  cssSourceMap: sourceMapEnabled,
   transformToRequire: {
     video: 'src',
     source: 'src',

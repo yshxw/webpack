@@ -6,8 +6,7 @@ Let's take a look at the default `config/index.js`:
 
 ``` js
 // config/index.js
-'use strict'
-const path = require('path')
+var path = require('path')
 
 module.exports = {
   build: {

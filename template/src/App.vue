@@ -2,24 +2,25 @@
   <div id="app">
     <img src="./assets/logo.png">
     {{#router}}
-    <router-view/>
+    <router-view></router-view>
     {{else}}
-    <HelloWorld/>
+    <hello></hello>
     {{/router}}
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 {{#unless router}}
-import HelloWorld from './components/HelloWorld'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import Hello from './components/Hello'
 
 {{/unless}}
-export default {
-  name: 'app'{{#router}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{else}},
+export default Vue.extend({
+  name: 'app'{{#router}}{{else}},
   components: {
-    HelloWorld{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}{{/router}}
-}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    Hello
+  }{{/router}}
+})
 </script>
 
 <style>

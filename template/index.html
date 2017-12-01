@@ -2,13 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0{{#if_eq platform "mobile"}}, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0{{/if_eq}}">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ name }}</title>
-    {{#if_eq platform "mobile"}}
-    <script>var designBaseWidth = 375</script>
-    <script src="https://unpkg.com/px2rem.scss"></script>
-    {{/if_eq}}
   </head>
   <body>
     <div id="app"></div>
