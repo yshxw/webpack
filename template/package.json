@@ -159,8 +159,13 @@
     "npm": ">= 3.0.0"
   },
   "browserslist": [
+    {{#if_eq platform "mobile"}}
+    "iOS >= 8",
+    "Android >= 4"
+    {{else}}
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
+    {{/if_eq}}
   ]
 }
