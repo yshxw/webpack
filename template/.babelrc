@@ -1,7 +1,19 @@
 {
   "presets": [
     ["env", {
-      "modules": false
+      "modules": false,
+      "targets": {
+        "browsers": [
+          {{#if_eq platform "mobile"}}
+          "iOS >= 8",
+          "Android >= 4"
+          {{else}}
+          "> 1%",
+          "last 2 versions",
+          "not ie <= 8"
+          {{/if_eq}}
+        ]
+      }
     }],
     "stage-2"
   ],
