@@ -8,13 +8,13 @@ import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueAxiosPlugin from 'vue-axios-plugin'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
-import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import router from './router'
 {{/router}}
 import VueCookie from './utils/vue-cookie'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueComponents from './utils/vue-components'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import VueApi from './utils/vue-apis'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-Vue.config.productionTip = false{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+Vue.config.productionTip = false
 
 function checkStatus{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}(response) {
   return {
@@ -35,10 +35,10 @@ new Vue({
   router,
   {{/router}}
   {{#if_eq build "runtime"}}
-  render: h => h(App){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  render: h => h(App)
   {{/if_eq}}
   {{#if_eq build "standalone"}}
   template: '<App/>',
-  components: { App }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  components: { App }
   {{/if_eq}}
-}){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+})
