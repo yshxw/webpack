@@ -89,6 +89,8 @@
 </template>
 
 <script>
+import API from '@/common/API'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -100,7 +102,7 @@ export default {
   methods: {
     async getUserInfo{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
       try {
-        const res = await this.$http.get(this.$api.user_info){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        const res = await this.$http.get(API.user_info){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
         this.user_info = res.data{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       } catch (e) {
         this.user_info = {

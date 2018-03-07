@@ -72,20 +72,6 @@ module.exports = {
       type: 'confirm',
       message: 'Install vue-router?',
     },
-    'platform': {
-      'type': 'list',
-      'message': 'Chose your platform',
-      'choices': [
-        {
-          'name': 'PC',
-          'value': 'pc'
-        },
-        {
-          'name': 'Mobile',
-          'value': 'mobile'
-        }
-      ]
-    },
     'ionicons': {
       'type': 'confirm',
       'message': 'Use ionic icons? (https://github.com/ionic-team/ionicons)'

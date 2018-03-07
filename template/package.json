@@ -29,9 +29,8 @@
     "vue": "^2.5.2",{{#router}}
     "vue-router": "^3.0.1",{{/router}}
     "vue-axios-plugin": "^1.2.3",
-    "element-ui": "git+https://github.com/yugasun/element.git#xuetangx",
-    "normalize.css": "^7.0.0"{{#if_eq platform "mobile"}},
-    "px2rem.scss": "^0.2.3"{{/if_eq}}
+    "element-ui": "https://github.com/yugasun/element.git#xuetangx",
+    "normalize.css": "^7.0.0"
   },
   "devDependencies": {
     {{#lint}}

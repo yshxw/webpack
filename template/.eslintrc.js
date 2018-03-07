@@ -69,6 +69,17 @@ module.exports = {
     }],
     {{/if_eq}}
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    /**
+     * add by @yugasun
+     */
+    'no-param-reassign': 'off',
+    'no-unused-vars': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'max-len': ['error', {
+      code: 150
+    }],
+    'no-console': 'off',
   }
 }
