@@ -5,5 +5,4 @@
 {{#unit}}
 /test/unit/coverage/
 {{/unit}}
-/src/utils/
 /server/

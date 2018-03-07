@@ -3,7 +3,7 @@ import {
   Option,
   Message,
   Row,
-  Col
+  Col{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 } from 'element-ui'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const VueComponents = {}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
